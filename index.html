@@ -5,13 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CovidApp-19 - wszystko o pandemii</title>
+    <title>uCOVID - wszystko o pandemii</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/1696cad8da.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="wrapper glass">
+        <div class="header">
+            <h2>uC<img src="./icons/covid-icon1.png" class="covid-icon" alt="">VID</h2>
+        </div>
+        <div class="covid-box">
+            <div class="stats-box">
+                <div class="stats-box-pl">
+                    <h3 class="daily-confirmed-pl">173</h3>
+                    <p>Przypadki</p>
+                    <h3 class="daily-deaths-pl">1</h3>
+                    <p>Zgony</p>
+                    <h3 class="active-cases-pl">547149
+                    </h3>
+                    <p>Chorzy obecnie</p>
+                    <h3 class="total-confirmed-pl">5997998</h3>
+                    <p>Wszystkie przypadki</p>
+                    <h3 class="total-deaths-pl">116070</h3>
+                    <p>Wszystkie zgony</p>
+                </div>
+                <div class="stats-box-world">
+                    <h3 class="daily-confirmed-world">195291</h3>
+                    <p>Przypadki</p>
+                    <h3 class="daily-deaths-world">562</h3>
+                    <p>Zgony</p>
+                    <h3 class="active-cases-world">38995233
+                    </h3>
+                    <p>Chorzy obecnie</p>
+                    <h3 class="total-confirmed-world">514762949</h3>
+                    <p>Wszystkie przypadki</p>
+                    <h3 class="total-deaths-world">6266193</h3>
+                    <p>Wszystkie zgony</p>
+                </div>
+            </div>
+            <div class="charts-box"></div>
+        </div>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

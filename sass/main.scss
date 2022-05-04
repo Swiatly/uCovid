@@ -3,3 +3,71 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100wh;
+	height: 100vh;
+	font-family: 'Quicksand', sans-serif;
+	background-color: #63a4ff;
+	background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+}
+
+h2 {
+	font-size: 30px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.glass {
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+}
+
+.wrapper {
+	min-width: 300px;
+	width: 80%;
+	max-width: 1200px;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.covid-icon {
+	width: 23px;
+	animation: rotation 10s linear infinite;
+}
+
+.header {
+	border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.covid-box {
+	display: flex;
+
+	.stats-box {
+		flex: 1;
+	}
+
+	.stats-box-pl {
+		margin-bottom: 30px;
+	}
+
+	.charts-box {
+		flex: 3;
+	}
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
