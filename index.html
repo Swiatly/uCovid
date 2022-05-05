@@ -22,6 +22,10 @@
         <div class="covid-box">
             <div class="stats-box">
                 <div class="stats-box-pl">
+                    <div class="label">
+                        <img src="./icons/poland.png" class="location-icon" alt="">
+                        <span class="location-text">Polska</span>
+                    </div>
                     <h3 class="daily-confirmed-pl">173</h3>
                     <p>Przypadki</p>
                     <h3 class="daily-deaths-pl">1</h3>
@@ -35,6 +39,10 @@
                     <p>Wszystkie zgony</p>
                 </div>
                 <div class="stats-box-world">
+                    <div class="label">
+                        <img src="./icons/location.png" class="location-icon" alt="">
+                        <span class="location-text">Świat</span>
+                    </div>
                     <h3 class="daily-confirmed-world">195291</h3>
                     <p>Przypadki</p>
                     <h3 class="daily-deaths-world">562</h3>
@@ -49,10 +57,16 @@
                 </div>
             </div>
             <div class="charts-box">
-                <label for="startDate">Data początkowa:</label>
-                <input id="startDate" type="date">
-                <label for="endDate">Data końcowa:</label>
-                <input id="endDate" type="date">
+                <div class="chart-box-pl">
+                    <canvas id="chartPL"></canvas>
+                    <label for="startDate">Data początkowa:</label>
+                    <input id="startDate" type="date">
+                    <label for="endDate">Data końcowa:</label>
+                    <input id="endDate" type="date">
+                </div>
+                <div class="chart-box world">
+
+                </div>
             </div>
         </div>
     </div>
