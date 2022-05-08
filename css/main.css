@@ -28,6 +28,27 @@ h2 {
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
+button {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #444444;
+  padding: 0 15px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+          box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
 .glass {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.2);
@@ -131,9 +152,45 @@ h2 {
 }
 
 .covid-box .charts-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
+}
+
+.covid-box .charts-box .chart-box-pl {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.covid-box .charts-box .chart-box-pl .chart {
+  padding: 20px;
+}
+
+.covid-box .charts-box .chart-box-pl .chart-inputs-pl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.covid-box .charts-box .chart-box-pl .chart-inputs-pl label {
+  font-size: 13px;
+}
+
+.covid-box .charts-box .chart-box-world {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 @-webkit-keyframes rotation {

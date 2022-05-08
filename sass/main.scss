@@ -21,6 +21,25 @@ h2 {
 	border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
+button {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	color: rgb(68, 68, 68);
+	padding: 0 15px;
+	background-color: #ffffff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0.25rem;
+	box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+	cursor: pointer;
+}
+
+button:hover {
+	border-color: rgba(0, 0, 0, 0.15);
+	box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+	color: rgba(0, 0, 0, 0.65);
+}
+
 .glass {
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	background: rgba(255, 255, 255, 0.2);
@@ -92,7 +111,30 @@ h2 {
 	}
 
 	.charts-box {
+		display: flex;
+		flex-direction: column;
 		flex: 4;
+
+		.chart-box-pl {
+			flex: 1;
+
+			.chart {
+				padding: 20px;
+			}
+
+			.chart-inputs-pl {
+				display: flex;
+				justify-content: space-evenly;
+
+				label {
+					font-size: 13px;
+				}
+			}
+		}
+
+		.chart-box-world {
+			flex: 1;
+		}
 	}
 }
 

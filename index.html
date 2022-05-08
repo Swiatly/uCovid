@@ -58,13 +58,22 @@
             </div>
             <div class="charts-box">
                 <div class="chart-box-pl">
-                    <canvas id="chartPL"></canvas>
-                    <label for="startDate">Data początkowa:</label>
-                    <input id="startDate" type="date">
-                    <label for="endDate">Data końcowa:</label>
-                    <input id="endDate" type="date">
+                    <div class="chart">
+                        <canvas id="chartPL" height="100"></canvas>
+                    </div>
+                    <div class="chart-inputs-pl">
+                        <div class="date-input">
+                            <label for="startDate">Data początkowa:</label>
+                            <input id="startDate" type="date">
+                        </div>
+                        <div class="date-input">
+                            <label for="endDate">Data końcowa:</label>
+                            <input id="endDate" type="date">
+                        </div>
+                        <button class="show-chart-pl">Pokaż wykres</button>
+                    </div>
                 </div>
-                <div class="chart-box world">
+                <div class="chart-box-world">
 
                 </div>
             </div>
