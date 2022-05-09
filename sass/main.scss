@@ -134,6 +134,19 @@ button:hover {
 
 		.chart-box-world {
 			flex: 1;
+
+			.chart {
+				padding: 20px;
+			}
+
+			.chart-inputs-world {
+				display: flex;
+				justify-content: space-evenly;
+
+				label {
+					font-size: 13px;
+				}
+			}
 		}
 	}
 }

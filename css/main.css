@@ -193,6 +193,23 @@ button:hover {
           flex: 1;
 }
 
+.covid-box .charts-box .chart-box-world .chart {
+  padding: 20px;
+}
+
+.covid-box .charts-box .chart-box-world .chart-inputs-world {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.covid-box .charts-box .chart-box-world .chart-inputs-world label {
+  font-size: 13px;
+}
+
 @-webkit-keyframes rotation {
   from {
     -webkit-transform: rotate(0deg);

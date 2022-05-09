@@ -19,7 +19,9 @@
         <div class="header">
             <h2>uC<img src="./icons/covid-icon1.png" class="covid-icon" alt="">VID</h2>
         </div>
+
         <div class="covid-box">
+
             <div class="stats-box">
                 <div class="stats-box-pl">
                     <div class="label">
@@ -38,6 +40,7 @@
                     <h3 class="total-deaths-pl">116070</h3>
                     <p>Wszystkie zgony</p>
                 </div>
+
                 <div class="stats-box-world">
                     <div class="label">
                         <img src="./icons/location.png" class="location-icon" alt="">
@@ -56,6 +59,7 @@
                     <p>Wszystkie zgony</p>
                 </div>
             </div>
+
             <div class="charts-box">
                 <div class="chart-box-pl">
                     <div class="chart">
@@ -73,8 +77,22 @@
                         <button class="show-chart-pl">Pokaż wykres</button>
                     </div>
                 </div>
-                <div class="chart-box-world">
 
+                <div class="chart-box-world">
+                    <div class="chart">
+                        <canvas id="chartWorld" height="100"></canvas>
+                    </div>
+                    <div class="chart-inputs-world">
+                        <div class="date-input">
+                            <label for="startDateWorld">Data początkowa:</label>
+                            <input id="startDateWorld" type="date">
+                        </div>
+                        <div class="date-input">
+                            <label for="endDateWorld">Data końcowa:</label>
+                            <input id="endDateWorld" type="date">
+                        </div>
+                        <button class="show-chart-world">Pokaż wykres</button>
+                    </div>
                 </div>
             </div>
         </div>

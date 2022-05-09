@@ -33,3 +33,6 @@ const getStatsForWorld = () => {
 		totalDeathsWorld.textContent = res.data.totalDeaths;
 	});
 };
+
+getStatsForPoland()
+getStatsForWorld()
