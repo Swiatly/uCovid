@@ -1,24 +1,40 @@
-// let startDate
-// let endDate = new
+const buttonChartPL = document.querySelector('.show-chart-pl');
+const buttonChartWorld = document.querySelector('.show-chart-world');
+
+console.log(buttonChartWorld);
 
 const setDefualtDate = () => {
-	const todayDate = new Date();
-	const yesterdayDate = new Date(todayDate);
-	yesterdayDate.setDate(yesterdayDate.getDate() + 1);
-	document.getElementById('endDate').valueAsDate = new Date(yesterdayDate);
-	const startDate = new Date(yesterdayDate);
-	startDate.setMonth(startDate.getMonth() - 1);
-	document.getElementById('startDate').valueAsDate = startDate;
+	const setDefualtDatePL = () => {
+		document.getElementById('endDatePL').valueAsDate = new Date();
+		const startDate = new Date();
+		startDate.setMonth(startDate.getMonth() - 1);
+		document.getElementById('startDatePL').valueAsDate = startDate;
+	};
+
+	const setDefualtDateWorld = () => {
+		document.getElementById('endDateWorld').valueAsDate = new Date();
+		const startDate = new Date();
+		startDate.setMonth(startDate.getMonth() - 1);
+		document.getElementById('startDateWorld').valueAsDate = startDate;
+	};
+	setDefualtDatePL();
+	setDefualtDateWorld();
 };
 
 const createChartForPoland = () => {
-	const startDate = document.getElementById('startDate').value;
-	const endDate = document.getElementById('endDate').value;
-	const URL = `https://api.coronatracker.com/v5/analytics/newcases/country?countryCode=PL&startDate=${startDate}&endDate=${endDate}`;
+	const getEndDate = document.getElementById('endDatePL').value;
+	const endDate = new Date(getEndDate);
+	endDate.setDate(endDate.getDate() + 1);
+	const finalEndDate = endDate.toISOString().slice(0, 10);
+
+	const getStartDate = document.getElementById('startDatePL').value;
+	const startDate = new Date(getStartDate);
+	startDate.setDate(startDate.getDate() - 1);
+	const finalStartDate = startDate.toISOString().slice(0, 10);
+
+	const URL = `https://api.coronatracker.com/v5/analytics/newcases/country?countryCode=PL&startDate=${finalStartDate}&endDate=${finalEndDate}`;
 
 	axios.get(URL).then((res) => {
-		const ctx = document.querySelector('#chartPL').getContext('2d');
-
 		const labels = res.data.map((el) => el.last_updated.slice(0, 10));
 
 		const newInfections = res.data.map((el) => el.new_infections);
@@ -57,23 +73,39 @@ const createChartForPoland = () => {
 			},
 		};
 
+		const chartBox = document.querySelector('.chart');
+		let chart = document.getElementById('chartPL');
+		let newChart = document.createElement('canvas');
+		newChart.setAttribute('id', 'chartPL');
+		newChart.setAttribute('height', '100');
+		chartBox.replaceChild(newChart, chart);
+		const ctx = document.querySelector('#chartPL').getContext('2d');
 		const myChart = new Chart(ctx, config);
 	});
 };
 
 const createChartForWorld = () => {
-	const startDate = new Date(document.getElementById('startDate').value);
-	const endDate = new Date(document.getElementById('endDate').value);
+	const getStartDate = new Date(
+		document.getElementById('startDateWorld').value
+	);
+	const startDate = new Date(getStartDate);
+	startDate.setDate(startDate.getDate() - 2);
+	const finalStartDate = new Date(startDate);
+
+	const getEndDate = new Date(document.getElementById('endDateWorld').value);
+	const endDate = new Date(getEndDate);
+	endDate.setDate(endDate.getDate() + 1);
+	const finalEndDate = new Date(endDate);
+
 	const URL = `https://api.coronatracker.com/v3/stats/worldometer/totalTrendingCases`;
 
 	axios.get(URL).then((res) => {
 		const filteredData = res.data
 			.filter((el) => {
 				const date = new Date(el.lastUpdated);
-				return date < endDate && date > startDate;
+				return date < finalEndDate && date > finalStartDate;
 			})
 			.reverse();
-		const ctx = document.querySelector('#chartWorld').getContext('2d');
 
 		const labels = filteredData.map((el) => el.lastUpdated.slice(0, 10));
 
@@ -96,6 +128,15 @@ const createChartForWorld = () => {
 		totalRecovered.forEach((el, index, array) => {
 			newRecovered.push(el - array[index - 1]);
 		});
+
+		const deleteFirstElement = (x) => {
+			return x.shift();
+		};
+
+		deleteFirstElement(labels);
+		deleteFirstElement(newInfections);
+		deleteFirstElement(newDeaths);
+		deleteFirstElement(newRecovered);
 
 		const data = {
 			labels,
@@ -129,6 +170,13 @@ const createChartForWorld = () => {
 			},
 		};
 
+		const chartBox = document.querySelector('.chart-world');
+		let chart = document.getElementById('chartWorld');
+		let newChart = document.createElement('canvas');
+		newChart.setAttribute('id', 'chartWorld');
+		newChart.setAttribute('height', '100');
+		chartBox.replaceChild(newChart, chart);
+		const ctx = document.querySelector('#chartWorld').getContext('2d');
 		const myChart = new Chart(ctx, config);
 	});
 };
@@ -136,3 +184,6 @@ const createChartForWorld = () => {
 setDefualtDate();
 createChartForPoland();
 createChartForWorld();
+
+buttonChartPL.addEventListener('click', createChartForPoland);
+buttonChartWorld.addEventListener('click', createChartForWorld);
