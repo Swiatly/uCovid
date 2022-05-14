@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uCOVID - wszystko o pandemii</title>
+    <title>uCOVID - wszystko o pandemii!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
@@ -21,24 +21,42 @@
         </div>
 
         <div class="covid-box">
-
             <div class="stats-box">
                 <div class="stats-box-pl">
                     <div class="label">
                         <img src="./icons/poland.png" class="location-icon" alt="">
                         <span class="location-text">Polska</span>
                     </div>
-                    <h3 class="daily-confirmed-pl">173</h3>
-                    <p>Przypadki</p>
-                    <h3 class="daily-deaths-pl">1</h3>
-                    <p>Zgony</p>
-                    <h3 class="active-cases-pl">547149
-                    </h3>
-                    <p>Chorzy obecnie</p>
-                    <h3 class="total-confirmed-pl">5997998</h3>
-                    <p>Wszystkie przypadki</p>
-                    <h3 class="total-deaths-pl">116070</h3>
-                    <p>Wszystkie zgony</p>
+                    <div class="statistics">
+                        <div class="statistic">
+                            <h3 class="daily-confirmed-pl"></h3>
+                            <p>Przypadki</p>
+                        </div>
+                        <div class="statistic">
+                            <h3 class="daily-deaths-pl"></h3>
+                            <p>Zgony</p>
+                        </div>
+                        <div class="statistic">
+                            <h3 class="active-cases-pl">
+                            </h3>
+                            <p>Chorzy obecnie</p>
+                        </div>
+                    </div>
+                    <div class="statistics">
+                        <div class="statistic">
+                            <h3 class="total-confirmed-pl"></h3>
+                            <p>Wszystkie przypadki</p>
+                        </div>
+
+                        <div class="statistic">
+                            <h3 class="total-deaths-pl"></h3>
+                            <p>Wszystkie zgony</p>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
 
                 <div class="stats-box-world">
@@ -46,24 +64,41 @@
                         <img src="./icons/location.png" class="location-icon" alt="">
                         <span class="location-text">Świat</span>
                     </div>
-                    <h3 class="daily-confirmed-world">195291</h3>
-                    <p>Przypadki</p>
-                    <h3 class="daily-deaths-world">562</h3>
-                    <p>Zgony</p>
-                    <h3 class="active-cases-world">38995233
-                    </h3>
-                    <p>Chorzy obecnie</p>
-                    <h3 class="total-confirmed-world">514762949</h3>
-                    <p>Wszystkie przypadki</p>
-                    <h3 class="total-deaths-world">6266193</h3>
-                    <p>Wszystkie zgony</p>
+                    <div class="statistics">
+                        <div class="statistic">
+                            <h3 class="daily-confirmed-world"></h3>
+                            <p>Przypadki</p>
+                        </div>
+                        <div class="statistic">
+                            <h3 class="daily-deaths-world"></h3>
+                            <p>Zgony</p>
+                        </div>
+                        <div class="statistic">
+                            <h3 class="active-cases-world">
+                            </h3>
+                            <p>Chorzy obecnie</p>
+                        </div>
+                    </div>
+                    <div class="statistics">
+                        <div class="statistic">
+                            <h3 class="total-confirmed-world"></h3>
+                            <p>Wszystkie przypadki</p>
+                        </div>
+                        <div class="statistic">
+                            <h3 class="total-deaths-world"></h3>
+                            <p>Wszystkie zgony</p>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
 
             <div class="charts-box">
                 <div class="chart-box-pl">
                     <div class="chart">
-                        <canvas id="chartPL" height="100"></canvas>
+                        <canvas id="chartPL"></canvas>
                     </div>
                     <div class="chart-inputs-pl">
                         <div class="date-input">

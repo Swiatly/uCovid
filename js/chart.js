@@ -1,8 +1,6 @@
 const buttonChartPL = document.querySelector('.show-chart-pl');
 const buttonChartWorld = document.querySelector('.show-chart-world');
 
-console.log(buttonChartWorld);
-
 const setDefualtDate = () => {
 	const setDefualtDatePL = () => {
 		document.getElementById('endDatePL').valueAsDate = new Date();
@@ -69,7 +67,14 @@ const createChartForPoland = () => {
 			type: 'line',
 			data: data,
 			options: {
+				maintainAspectRatio: false,
 				responsive: true,
+				plugins: {
+					title: {
+						display: true,
+						text: 'Wykres danych dla Polski',
+					},
+				},
 			},
 		};
 
@@ -77,7 +82,6 @@ const createChartForPoland = () => {
 		let chart = document.getElementById('chartPL');
 		let newChart = document.createElement('canvas');
 		newChart.setAttribute('id', 'chartPL');
-		newChart.setAttribute('height', '100');
 		chartBox.replaceChild(newChart, chart);
 		const ctx = document.querySelector('#chartPL').getContext('2d');
 		const myChart = new Chart(ctx, config);
@@ -166,7 +170,14 @@ const createChartForWorld = () => {
 			type: 'line',
 			data: data,
 			options: {
+				maintainAspectRatio: false,
 				responsive: true,
+				plugins: {
+					title: {
+						display: true,
+						text: 'Wykres danych dla Świata',
+					},
+				},
 			},
 		};
 
@@ -174,7 +185,6 @@ const createChartForWorld = () => {
 		let chart = document.getElementById('chartWorld');
 		let newChart = document.createElement('canvas');
 		newChart.setAttribute('id', 'chartWorld');
-		newChart.setAttribute('height', '100');
 		chartBox.replaceChild(newChart, chart);
 		const ctx = document.querySelector('#chartWorld').getContext('2d');
 		const myChart = new Chart(ctx, config);

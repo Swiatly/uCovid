@@ -34,5 +34,5 @@ const getStatsForWorld = () => {
 	});
 };
 
-getStatsForPoland()
-getStatsForWorld()
+getStatsForPoland();
+getStatsForWorld();
