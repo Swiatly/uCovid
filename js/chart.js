@@ -1,22 +1,11 @@
 const buttonChartPL = document.querySelector('.show-chart-pl');
 const buttonChartWorld = document.querySelector('.show-chart-world');
 
-const setDefualtDate = () => {
-	const setDefualtDatePL = () => {
-		document.getElementById('endDatePL').valueAsDate = new Date();
-		const startDate = new Date();
-		startDate.setMonth(startDate.getMonth() - 1);
-		document.getElementById('startDatePL').valueAsDate = startDate;
-	};
-
-	const setDefualtDateWorld = () => {
-		document.getElementById('endDateWorld').valueAsDate = new Date();
-		const startDate = new Date();
-		startDate.setMonth(startDate.getMonth() - 1);
-		document.getElementById('startDateWorld').valueAsDate = startDate;
-	};
-	setDefualtDatePL();
-	setDefualtDateWorld();
+const setDefualtDate = (end, start) => {
+	document.getElementById(end).valueAsDate = new Date();
+	const startDate = new Date();
+	startDate.setMonth(startDate.getMonth() - 1);
+	document.getElementById(start).valueAsDate = startDate;
 };
 
 const createChartForPoland = () => {
@@ -83,6 +72,7 @@ const createChartForPoland = () => {
 		let newChart = document.createElement('canvas');
 		newChart.setAttribute('id', 'chartPL');
 		chartBox.replaceChild(newChart, chart);
+
 		const ctx = document.querySelector('#chartPL').getContext('2d');
 		const myChart = new Chart(ctx, config);
 	});
@@ -191,7 +181,8 @@ const createChartForWorld = () => {
 	});
 };
 
-setDefualtDate();
+setDefualtDate('endDatePL', 'startDatePL');
+setDefualtDate('endDateWorld', 'startDateWorld');
 createChartForPoland();
 createChartForWorld();
 
