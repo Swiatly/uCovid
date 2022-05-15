@@ -1,5 +1,7 @@
-const buttonChartPL = document.querySelector('.show-chart-pl');
-const buttonChartWorld = document.querySelector('.show-chart-world');
+const startDateInputPL = document.querySelector('#startDatePL');
+const endDateInputPL = document.querySelector('#endDatePL');
+const startDateInputWorld = document.querySelector('#startDateWorld');
+const endDateInputWorld = document.querySelector('#endDateWorld');
 
 const setDefualtDate = (end, start) => {
 	document.getElementById(end).valueAsDate = new Date();
@@ -176,6 +178,7 @@ const createChartForWorld = () => {
 		let newChart = document.createElement('canvas');
 		newChart.setAttribute('id', 'chartWorld');
 		chartBox.replaceChild(newChart, chart);
+
 		const ctx = document.querySelector('#chartWorld').getContext('2d');
 		const myChart = new Chart(ctx, config);
 	});
@@ -186,5 +189,7 @@ setDefualtDate('endDateWorld', 'startDateWorld');
 createChartForPoland();
 createChartForWorld();
 
-buttonChartPL.addEventListener('click', createChartForPoland);
-buttonChartWorld.addEventListener('click', createChartForWorld);
+startDateInputPL.addEventListener('change', createChartForPoland);
+endDateInputPL.addEventListener('change', createChartForPoland);
+startDateInputWorld.addEventListener('change', createChartForWorld);
+endDateInputWorld.addEventListener('change', createChartForWorld);
