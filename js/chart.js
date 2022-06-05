@@ -2,6 +2,7 @@ const startDateInputPL = document.querySelector('#startDatePL');
 const endDateInputPL = document.querySelector('#endDatePL');
 const startDateInputWorld = document.querySelector('#startDateWorld');
 const endDateInputWorld = document.querySelector('#endDateWorld');
+const countrySelect = document.getElementById('countries-select');
 
 const setDefualtDate = (end, start) => {
 	document.getElementById(end).valueAsDate = new Date();
@@ -21,7 +22,11 @@ const createChartForPoland = () => {
 	startDate.setDate(startDate.getDate() - 1);
 	const finalStartDate = startDate.toISOString().slice(0, 10);
 
-	const URL = `https://api.coronatracker.com/v5/analytics/newcases/country?countryCode=PL&startDate=${finalStartDate}&endDate=${finalEndDate}`;
+	const country = document.getElementById('countries-select');
+	const countryCode = country.options[country.selectedIndex].value;
+	const countryText = country.options[country.selectedIndex].text;
+
+	const URL = `https://api.coronatracker.com/v5/analytics/newcases/country?countryCode=${countryCode}&startDate=${finalStartDate}&endDate=${finalEndDate}`;
 
 	axios.get(URL).then((res) => {
 		const labels = res.data.map((el) => el.last_updated.slice(0, 10));
@@ -63,7 +68,7 @@ const createChartForPoland = () => {
 				plugins: {
 					title: {
 						display: true,
-						text: 'Wykres danych dla Polski',
+						text: `Wykres danych dla ${countryText}`,
 					},
 				},
 			},
@@ -191,5 +196,6 @@ createChartForWorld();
 
 startDateInputPL.addEventListener('change', createChartForPoland);
 endDateInputPL.addEventListener('change', createChartForPoland);
+countrySelect.addEventListener('change', createChartForPoland);
 startDateInputWorld.addEventListener('change', createChartForWorld);
 endDateInputWorld.addEventListener('change', createChartForWorld);

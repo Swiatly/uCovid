@@ -130,7 +130,8 @@ button:hover {
   width: 20px;
 }
 
-.covid-box .stats-box .label .location-text {
+.covid-box .stats-box .label .country-text,
+.covid-box .stats-box .label .world-text {
   font-size: 14px;
   text-transform: uppercase;
   color: white;
