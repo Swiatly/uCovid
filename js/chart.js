@@ -2,7 +2,7 @@ const startDateInputPL = document.querySelector('#startDatePL');
 const endDateInputPL = document.querySelector('#endDatePL');
 const startDateInputWorld = document.querySelector('#startDateWorld');
 const endDateInputWorld = document.querySelector('#endDateWorld');
-const countrySelect = document.getElementById('countries-select');
+const countrySelectforChart = document.getElementById('countries-select');
 
 const setDefualtDate = (end, start) => {
 	document.getElementById(end).valueAsDate = new Date();
@@ -22,9 +22,8 @@ const createChartForPoland = () => {
 	startDate.setDate(startDate.getDate() - 1);
 	const finalStartDate = startDate.toISOString().slice(0, 10);
 
-	const country = document.getElementById('countries-select');
-	const countryCode = country.options[country.selectedIndex].value;
-	const countryText = country.options[country.selectedIndex].text;
+	const countryCode = countrySelectforChart.options[countrySelectforChart.selectedIndex].value;
+	const countryText = countrySelectforChart.options[countrySelectforChart.selectedIndex].text;
 
 	const URL = `https://api.coronatracker.com/v5/analytics/newcases/country?countryCode=${countryCode}&startDate=${finalStartDate}&endDate=${finalEndDate}`;
 
@@ -196,6 +195,6 @@ createChartForWorld();
 
 startDateInputPL.addEventListener('change', createChartForPoland);
 endDateInputPL.addEventListener('change', createChartForPoland);
-countrySelect.addEventListener('change', createChartForPoland);
+countrySelectforChart.addEventListener('change', createChartForPoland);
 startDateInputWorld.addEventListener('change', createChartForWorld);
 endDateInputWorld.addEventListener('change', createChartForWorld);

@@ -125,7 +125,8 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.covid-box .stats-box .label .location-icon {
+.covid-box .stats-box .label .country-icon,
+.covid-box .stats-box .label .world-icon {
   margin-right: 5px;
   width: 20px;
 }
@@ -215,6 +216,30 @@ button:hover {
 
 .covid-box .charts-box label {
   font-size: 12px;
+}
+
+.select-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+}
+
+.select-box label {
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+.select-box select {
+  border: 1px solid rgba(68, 68, 68, 0.2);
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .wrapper::-webkit-scrollbar {

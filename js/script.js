@@ -10,11 +10,19 @@ const activeCasesWorld = document.querySelector('.active-cases-world');
 const totalConfirmedWorld = document.querySelector('.total-confirmed-world');
 const totalDeathsWorld = document.querySelector('.total-deaths-world');
 
-const URL = 'https://api.coronatracker.com/v3/stats/worldometer/global';
-const URL_PL =
-	'https://api.coronatracker.com/v3/stats/worldometer/country?countryCode=PL';
+const countrySelectforInfo = document.getElementById('countries-select');
+const countryLabel = document.querySelector('.country-text')
+const countryIcon = document.querySelector('.country-icon')
 
 const getStatsForPoland = () => {
+	
+	const countryCode = countrySelectforInfo.options[countrySelectforInfo.selectedIndex].value;
+	const countryText = countrySelectforInfo.options[countrySelectforInfo.selectedIndex].text;
+	countryIcon.setAttribute('src', `./icons/${countryText}.png`)
+	countryLabel.textContent = countryText
+
+	const URL_PL = `https://api.coronatracker.com/v3/stats/worldometer/country?countryCode=${countryCode}`;
+
 	axios.get(URL_PL).then((res) => {
 		dailyConfirmedPL.textContent = res.data[0].dailyConfirmed;
 		dailyDeathsPL.textContent = res.data[0].dailyDeaths;
@@ -25,6 +33,8 @@ const getStatsForPoland = () => {
 };
 
 const getStatsForWorld = () => {
+	const URL = 'https://api.coronatracker.com/v3/stats/worldometer/global';
+
 	axios.get(URL).then((res) => {
 		dailyConfirmedWorld.textContent = res.data.totalNewCases;
 		dailyDeathsWorld.textContent = res.data.totalNewDeaths;
@@ -36,3 +46,5 @@ const getStatsForWorld = () => {
 
 getStatsForPoland();
 getStatsForWorld();
+
+countrySelectforInfo.addEventListener('change', getStatsForPoland)
