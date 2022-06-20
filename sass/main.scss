@@ -100,7 +100,7 @@ button:hover {
 				letter-spacing: 1.5px;
 			}
 		}
-		.stats-box-pl,
+		.stats-box-country,
 		.stats-box-world {
 			display: flex;
 			flex-direction: column;
@@ -132,7 +132,7 @@ button:hover {
 		display: flex;
 		flex-direction: column;
 
-		.chart-box-pl,
+		.chart-box-country,
 		.chart-box-world {
 			padding: 25px;
 		}
@@ -142,7 +142,7 @@ button:hover {
 			height: 350px;
 		}
 
-		.chart-inputs-pl,
+		.chart-inputs-country,
 		.chart-inputs-world {
 			display: flex;
 			justify-content: space-evenly;

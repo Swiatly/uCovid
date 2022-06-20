@@ -1,5 +1,5 @@
-const startDateInputPL = document.querySelector('#startDatePL');
-const endDateInputPL = document.querySelector('#endDatePL');
+const startDateInputPL = document.querySelector('#startDateCountry');
+const endDateInputPL = document.querySelector('#endDateCountry');
 const startDateInputWorld = document.querySelector('#startDateWorld');
 const endDateInputWorld = document.querySelector('#endDateWorld');
 const countrySelectforChart = document.getElementById('countries-select');
@@ -11,19 +11,21 @@ const setDefualtDate = (end, start) => {
 	document.getElementById(start).valueAsDate = startDate;
 };
 
-const createChartForPoland = () => {
-	const getEndDate = document.getElementById('endDatePL').value;
+const createChartForSelectedCountry = () => {
+	const getEndDate = document.getElementById('endDateCountry').value;
 	const endDate = new Date(getEndDate);
 	endDate.setDate(endDate.getDate() + 1);
 	const finalEndDate = endDate.toISOString().slice(0, 10);
 
-	const getStartDate = document.getElementById('startDatePL').value;
+	const getStartDate = document.getElementById('startDateCountry').value;
 	const startDate = new Date(getStartDate);
 	startDate.setDate(startDate.getDate() - 1);
 	const finalStartDate = startDate.toISOString().slice(0, 10);
 
-	const countryCode = countrySelectforChart.options[countrySelectforChart.selectedIndex].value;
-	const countryText = countrySelectforChart.options[countrySelectforChart.selectedIndex].text;
+	const countryCode =
+		countrySelectforChart.options[countrySelectforChart.selectedIndex].value;
+	const countryText =
+		countrySelectforChart.options[countrySelectforChart.selectedIndex].text;
 
 	const URL = `https://api.coronatracker.com/v5/analytics/newcases/country?countryCode=${countryCode}&startDate=${finalStartDate}&endDate=${finalEndDate}`;
 
@@ -74,12 +76,12 @@ const createChartForPoland = () => {
 		};
 
 		const chartBox = document.querySelector('.chart');
-		let chart = document.getElementById('chartPL');
+		let chart = document.getElementById('chartCountry');
 		let newChart = document.createElement('canvas');
-		newChart.setAttribute('id', 'chartPL');
+		newChart.setAttribute('id', 'chartCountry');
 		chartBox.replaceChild(newChart, chart);
 
-		const ctx = document.querySelector('#chartPL').getContext('2d');
+		const ctx = document.querySelector('#chartCountry').getContext('2d');
 		const myChart = new Chart(ctx, config);
 	});
 };
@@ -188,13 +190,13 @@ const createChartForWorld = () => {
 	});
 };
 
-setDefualtDate('endDatePL', 'startDatePL');
+setDefualtDate('endDateCountry', 'startDateCountry');
 setDefualtDate('endDateWorld', 'startDateWorld');
-createChartForPoland();
+createChartForSelectedCountry();
 createChartForWorld();
 
-startDateInputPL.addEventListener('change', createChartForPoland);
-endDateInputPL.addEventListener('change', createChartForPoland);
-countrySelectforChart.addEventListener('change', createChartForPoland);
+startDateInputPL.addEventListener('change', createChartForSelectedCountry);
+endDateInputPL.addEventListener('change', createChartForSelectedCountry);
+countrySelectforChart.addEventListener('change', createChartForSelectedCountry);
 startDateInputWorld.addEventListener('change', createChartForWorld);
 endDateInputWorld.addEventListener('change', createChartForWorld);

@@ -1,8 +1,8 @@
-const dailyConfirmedPL = document.querySelector('.daily-confirmed-pl');
-const dailyDeathsPL = document.querySelector('.daily-deaths-pl');
-const activeCasesPL = document.querySelector('.active-cases-pl');
-const totalConfirmedPL = document.querySelector('.total-confirmed-pl');
-const totalDeathsPL = document.querySelector('.total-deaths-pl');
+const dailyConfirmedCountry = document.querySelector('.daily-confirmed-country');
+const dailyDeathsCountry = document.querySelector('.daily-deaths-country');
+const activeCasesCountry = document.querySelector('.active-cases-country');
+const totalConfirmedCountry = document.querySelector('.total-confirmed-country');
+const totalDeathsCountry = document.querySelector('.total-deaths-country');
 
 const dailyConfirmedWorld = document.querySelector('.daily-confirmed-world');
 const dailyDeathsWorld = document.querySelector('.daily-deaths-world');
@@ -11,24 +11,25 @@ const totalConfirmedWorld = document.querySelector('.total-confirmed-world');
 const totalDeathsWorld = document.querySelector('.total-deaths-world');
 
 const countrySelectforInfo = document.getElementById('countries-select');
-const countryLabel = document.querySelector('.country-text')
-const countryIcon = document.querySelector('.country-icon')
+const countryLabel = document.querySelector('.country-text');
+const countryIcon = document.querySelector('.country-icon');
 
-const getStatsForPoland = () => {
-	
-	const countryCode = countrySelectforInfo.options[countrySelectforInfo.selectedIndex].value;
-	const countryText = countrySelectforInfo.options[countrySelectforInfo.selectedIndex].text;
-	countryIcon.setAttribute('src', `./icons/${countryText}.png`)
-	countryLabel.textContent = countryText
+const getStatsForCountry = () => {
+	const countryCode =
+		countrySelectforInfo.options[countrySelectforInfo.selectedIndex].value;
+	const countryText =
+		countrySelectforInfo.options[countrySelectforInfo.selectedIndex].text;
+	countryIcon.setAttribute('src', `./icons/${countryText}.png`);
+	countryLabel.textContent = countryText;
 
-	const URL_PL = `https://api.coronatracker.com/v3/stats/worldometer/country?countryCode=${countryCode}`;
+	const URL = `https://api.coronatracker.com/v3/stats/worldometer/country?countryCode=${countryCode}`;
 
-	axios.get(URL_PL).then((res) => {
-		dailyConfirmedPL.textContent = res.data[0].dailyConfirmed;
-		dailyDeathsPL.textContent = res.data[0].dailyDeaths;
-		activeCasesPL.textContent = res.data[0].activeCases;
-		totalConfirmedPL.textContent = res.data[0].totalConfirmed;
-		totalDeathsPL.textContent = res.data[0].totalDeaths;
+	axios.get(URL).then((res) => {
+		dailyConfirmedCountry.textContent = res.data[0].dailyConfirmed;
+		dailyDeathsCountry.textContent = res.data[0].dailyDeaths;
+		activeCasesCountry.textContent = res.data[0].activeCases;
+		totalConfirmedCountry.textContent = res.data[0].totalConfirmed;
+		totalDeathsCountry.textContent = res.data[0].totalDeaths;
 	});
 };
 
@@ -44,7 +45,7 @@ const getStatsForWorld = () => {
 	});
 };
 
-getStatsForPoland();
+getStatsForCountry();
 getStatsForWorld();
 
-countrySelectforInfo.addEventListener('change', getStatsForPoland)
+countrySelectforInfo.addEventListener('change', getStatsForCountry);

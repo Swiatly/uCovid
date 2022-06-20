@@ -141,7 +141,7 @@ button:hover {
   letter-spacing: 1.5px;
 }
 
-.covid-box .stats-box .stats-box-pl,
+.covid-box .stats-box .stats-box-country,
 .covid-box .stats-box .stats-box-world {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -154,18 +154,18 @@ button:hover {
   padding: 0 25px;
 }
 
-.covid-box .stats-box .stats-box-pl p,
+.covid-box .stats-box .stats-box-country p,
 .covid-box .stats-box .stats-box-world p {
   font-size: clamp(0.6rem, 80%, 1vw);
   color: #444444;
 }
 
-.covid-box .stats-box .stats-box-pl h3,
+.covid-box .stats-box .stats-box-country h3,
 .covid-box .stats-box .stats-box-world h3 {
   font-size: clamp(0.9rem, 100%, 1.1vw);
 }
 
-.covid-box .stats-box .stats-box-pl .statistics,
+.covid-box .stats-box .stats-box-country .statistics,
 .covid-box .stats-box .stats-box-world .statistics {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -177,7 +177,7 @@ button:hover {
           justify-content: center;
 }
 
-.covid-box .stats-box .stats-box-pl .statistic,
+.covid-box .stats-box .stats-box-country .statistic,
 .covid-box .stats-box .stats-box-world .statistic {
   margin: 10px 20px;
 }
@@ -192,7 +192,7 @@ button:hover {
           flex-direction: column;
 }
 
-.covid-box .charts-box .chart-box-pl,
+.covid-box .charts-box .chart-box-country,
 .covid-box .charts-box .chart-box-world {
   padding: 25px;
 }
@@ -202,7 +202,7 @@ button:hover {
   height: 350px;
 }
 
-.covid-box .charts-box .chart-inputs-pl,
+.covid-box .charts-box .chart-inputs-country,
 .covid-box .charts-box .chart-inputs-world {
   display: -webkit-box;
   display: -ms-flexbox;
